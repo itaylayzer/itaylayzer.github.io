@@ -71,7 +71,7 @@ export const productsSample: Product[][] = [
 		{
 			picture: "",
 			title: "Counter Strike",
-			level: 0,
+			level: 1,
 			tags: 0b1101010,
 			markDown:
 				"https://raw.githubusercontent.com/itaylayzer/playground-counter-strike/master/README.md",
