@@ -87,7 +87,7 @@ export const productsSample: Product[][] = [
 			picture: "",
 			gameURI: "https://itaylayzer.github.io/kart.io/",
 			tags: 0b01111011,
-			github: "https://github.com/itaylayzer/kart.public",
+			github: "https://github.com/itaylayzer/kart.io",
 			markDown:
 				"https://raw.githubusercontent.com/itaylayzer/kart.public/master/README.md",
 			gallery: [
