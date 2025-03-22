@@ -22,15 +22,17 @@ function App() {
     const screenComponent = screenComponents[navIndex];
 
     return (
-        <div id="root">
-            <Tooltip
-                id="t"
-                style={{
-                    backgroundColor: "#020202",
-                    zIndex: 3,
-                    fontFamily: "monospace"
-                }}
-            />
+        <>
+            {window.innerWidth < 700 ? null : (
+                <Tooltip
+                    id="t"
+                    style={{
+                        backgroundColor: "#020202",
+                        zIndex: 3,
+                        fontFamily: "monospace",
+                    }}
+                />
+            )}
             <nav>
                 {categories.map((name, index) => (
                     <button
@@ -62,7 +64,7 @@ function App() {
                     <SiGmail size={25} color="white" />
                 </button>
             </footer>
-        </div>
+        </>
     );
 }
 

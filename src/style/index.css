@@ -33,6 +33,8 @@ body {
     overflow-y: hidden;
     overflow-x: hidden;
     z-index: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #root > nav {
@@ -56,7 +58,7 @@ button#goBack,
     font-family: "Rubik", sans-serif;
     z-index: 2;
     font-weight: 400;
-
+    text-wrap-mode: nowrap;
     border: 1px solid #555;
     cursor: pointer;
 }
@@ -328,4 +330,51 @@ div.react-mk a:link {
 }
 div.react-mk a:visited {
     color: rgb(255, 107, 43);
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+    #root {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh; /* Switch width and height */
+        height: 100vw;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        overflow: hidden; /* Prevent scrollbars */
+    }
+}
+@media (max-height: 700px) and (orientation: landscape) {
+    #root > main > div.button {
+        translate: -50% 25px;
+    }
+}
+
+@media ((max-width: 700px) and (orientation: portrait)) or ((max-height: 700px) and (orientation: landscape)) {
+    /* CSS styles for phones in portrait orientation */
+    #root > main > section > article > main > div > h1 {
+        font-size: 50px;
+    }
+
+    #root > main > section > article > main > p.tag {
+        font-size: 10px;
+    }
+    #root > nav > button {
+        font-size: 14px;
+    }
+
+    *:focus {
+        outline: none;
+    }
+    #root > footer {
+        translate: -50% 0%;
+        scale: 0.7;
+    }
+
+    #root > main > div.button {
+        scale: 0.76;
+    }
+    #root > main > div.button:hover {
+        scale: 0.76;
+    }
 }

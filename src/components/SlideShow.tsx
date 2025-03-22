@@ -54,23 +54,26 @@ export function SlideShow({ products }: { products: Product[] }) {
         };
     });
 
+    const width =
+        window.innerWidth >= 700 ? window.innerWidth : window.innerHeight;
+
     return (
         <>
             <main>
                 <section
                     style={{
-                        translate: `-${slideIndex * window.innerWidth}px 0%`,
-                        width: window.innerWidth * products.length
+                        translate: `-${slideIndex * width}px 0%`,
+                        width: width * products.length,
                     }}
                 >
                     {products.map((v) => (
-                        <article style={{ width: window.innerWidth }}>
+                        <article style={{ width: width }}>
                             <main>
                                 <p>@itaylayzer</p>
                                 <div>
                                     <GoDotFill
                                         style={{
-                                            marginBlock: "auto"
+                                            marginBlock: "auto",
                                         }}
                                         color={statusColors[v.level]}
                                         data-tooltip-id="t"
@@ -96,7 +99,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                                                 size={15}
                                                                 style={{
                                                                     marginBlock:
-                                                                        "auto"
+                                                                        "auto",
                                                                 }}
                                                                 data-tooltip-id="t"
                                                                 data-tooltip-content="Play Here"
@@ -117,7 +120,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                                             size={15}
                                                             style={{
                                                                 marginBlock:
-                                                                    "auto"
+                                                                    "auto",
                                                             }}
                                                             data-tooltip-id="t"
                                                             data-tooltip-content="Play On Website"
@@ -137,7 +140,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                                         color="white"
                                                         size={15}
                                                         style={{
-                                                            marginBlock: "auto"
+                                                            marginBlock: "auto",
                                                         }}
                                                         data-tooltip-id="t"
                                                         data-tooltip-content="Gallery"
@@ -156,7 +159,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                                         color="white"
                                                         size={15}
                                                         style={{
-                                                            marginBlock: "auto"
+                                                            marginBlock: "auto",
                                                         }}
                                                         data-tooltip-id="t"
                                                         data-tooltip-content="README.md"
@@ -175,7 +178,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                                         color="white"
                                                         size={15}
                                                         style={{
-                                                            marginBlock: "auto"
+                                                            marginBlock: "auto",
                                                         }}
                                                         data-tooltip-id="t"
                                                         data-tooltip-content="Browse on Github"
@@ -225,7 +228,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                             return dot({
                                 style: {
                                     marginBlock: "auto",
-                                    cursor: "pointer"
+                                    cursor: "pointer",
                                 },
                                 color: "white",
                                 size: 20,
@@ -235,7 +238,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                 },
                                 onDoubleClick(e) {
                                     e.preventDefault();
-                                }
+                                },
                             });
                         })}
                         <FaAngleRight
@@ -272,7 +275,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                     height: "100%",
                                     border: "0px",
                                     display: "block",
-                                    zIndex: "10"
+                                    zIndex: "10",
                                 }}
                             ></iframe>,
                             <div className="gallery">
@@ -280,7 +283,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                     {(
                                         (products[slideIndex].gallery ?? [
                                             [],
-                                            []
+                                            [],
                                         ])[0] ?? []
                                     ).map((v) => (
                                         <video controls>
@@ -291,7 +294,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                     {(
                                         (products[slideIndex].gallery ?? [
                                             [],
-                                            []
+                                            [],
                                         ])[1] ?? []
                                     ).map((v) => (
                                         <img src={v} />
@@ -313,7 +316,7 @@ export function SlideShow({ products }: { products: Product[] }) {
                                 meanwhile={
                                     <HiDotsHorizontal color="white" size={10} />
                                 }
-                            />
+                            />,
                         ][popStatus - 1]
                     }
                 </main>
