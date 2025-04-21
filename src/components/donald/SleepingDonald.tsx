@@ -17,7 +17,7 @@ function SleepingModel() {
 
     useFrame((_, delta) => {
         mixer.update(delta);
-    })
+    });
 
     return (
         <primitive
@@ -57,18 +57,22 @@ export function SleepingDonald() {
             orthographic
             scene={{
                 background: new Color("#080808"),
-                fog: new Fog("#080808", 0, 10)
+                fog: new Fog("#080808", 0, 10),
             }}
             camera={{ position: [0, 2, 5], zoom: 100 }}
         >
             <ambientLight intensity={0.3 * 5} />
-            <spotLight position={[0, 5, 0]} angle={0.6} rotation={[Math.PI / 2, 0, 0]} intensity={60} penumbra={0} />
+            <spotLight
+                position={[0, 5, 0]}
+                angle={0.6}
+                rotation={[Math.PI / 2, 0, 0]}
+                intensity={60}
+                penumbra={0}
+            />
 
-            <Suspense fallback={<Ground />}>
+            <Suspense>
                 <SleepingModel />
             </Suspense>
-            {/* <Ground /> */}
-            {/* <OrbitControls /> */}
         </Canvas>
     );
 }
