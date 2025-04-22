@@ -2,6 +2,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useFBX, useAnimations } from "@react-three/drei";
 import { useEffect } from "react";
 import { Color, Fog } from "three";
+import { toonify } from "@/api/toonify";
 
 function SleepingModel() {
     const fbx = useFBX("fbx/sleeping.fbx");
@@ -17,9 +18,11 @@ function SleepingModel() {
 
     useFrame((_, delta) => {
         mixer.update(delta);
-        // fbx.scale.lerp({ x: 0.01, y: 0.01, z: 0.01 }, 0.25);
     });
 
+    useEffect(() => {
+        toonify(fbx);
+    }, [fbx]);
     return (
         <primitive
             object={fbx}
@@ -30,7 +33,6 @@ function SleepingModel() {
         />
     );
 }
-
 
 export function SleepingDonald() {
     return (
@@ -47,10 +49,10 @@ export function SleepingDonald() {
             <ambientLight intensity={0.3 * 5} />
             <spotLight
                 position={[0, 5, 0]}
-                angle={0.6}
+                angle={1}
                 rotation={[Math.PI / 2, 0, 0]}
-                intensity={60}
-                penumbra={0}
+                intensity={600}
+                penumbra={1}
             />
 
             <SleepingModel />

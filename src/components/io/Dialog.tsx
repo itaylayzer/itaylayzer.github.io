@@ -31,15 +31,15 @@ export function GameDialog({
     closeDialog,
     product,
 }: {
-    activeProuduct: React.Dispatch<React.SetStateAction<IOGameProduct>>;
+    activeProuduct: boolean;
     product: IOGameProduct;
     closeDialog: () => void;
 }) {
     return (
         <Dialog
-            open={activeProuduct !== null}
-            modal={true}
+            open={activeProuduct}
             onOpenChange={closeDialog}
+            modal={true}
             defaultOpen={false}
         >
             <DialogContent className="min-w-max w-max max-w-max">

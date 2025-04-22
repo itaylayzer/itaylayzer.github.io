@@ -19,7 +19,7 @@ const tabsTooltip = ["3D Art", "3D Demos", "IO Games", "Local Games", "CV"];
 
 createRoot(document.getElementById("root")!).render(
     <TooltipProvider>
-        <Tabs defaultValue={tabs[0]} className="w-[100vw] h-[100vh]">
+        <Tabs defaultValue={tabs[3]} className="w-[100vw] h-[100vh]">
             <TabsList className="flex gap-3 justify-center items-center pt-10">
                 {tabs.map((header, index) => (
                     <Tooltip>

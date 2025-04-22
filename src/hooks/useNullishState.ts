@@ -9,9 +9,9 @@ export const useNullishState = <T>(defaultValue: T) => {
         if (state !== null) setValue(state);
     }, [state]);
 
-    return [state === null ? value : state, state, setState] as [
+    return [state === null ? value : state, state !== null, setState] as [
         T,
-        React.Dispatch<React.SetStateAction<T>>,
+        boolean,
         (value: React.SetStateAction<T | null>) => void
     ];
 };

@@ -1,9 +1,9 @@
-import { FixedGrid } from "../components/donald/FixedGrid";
-import { GameCard, StabCard } from "../components/donald/GameCard";
-import { SleepingDonald } from "../components/donald/SleepingDonald";
+import { FixedGrid } from "../components/io/FixedGrid";
+import { GameCard, StabCard } from "../components/io/GameCard";
+import { SleepingDonald } from "../components/io/SleepingDonald";
 import { ioGames } from "../config/constants/sample";
 
-import { GameDialog } from "../components/donald/Dialog";
+import { GameDialog } from "../components/io/Dialog";
 import { useNullishState } from "../hooks/useNullishState";
 import { useEventMemo } from "@/hooks/useEventMemo";
 

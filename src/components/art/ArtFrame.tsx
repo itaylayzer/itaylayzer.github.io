@@ -7,14 +7,14 @@ import { GithubButton } from "../generic/GithubButton";
 export function ArtFrame({ art }: { art: Art }) {
     return (
         <>
-            <h1 className="text-2xl text-center font-[Rubik] font-bold">
+            <h1 className="text-4xl mb-4 text-center font-[Rubik] font-bold">
                 {art.name}
             </h1>
             <iframe
                 className="not-xl:w-3xl w-5xl aspect-video rounded-lg scale-95"
                 src={art.artURI}
             />
-            <div className="flex gap-2">
+            <div className="flex gap-2 -translate-y-1">
                 <GithubButton sha={art.hash} github={art.github} />
                 <Button
                     variant="link"

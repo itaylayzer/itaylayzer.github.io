@@ -2,7 +2,6 @@ import { statusColors, statusExplenations } from "@/config/constants/constants";
 import { IOGameProduct } from "@/types/types";
 import { GoDotFill } from "react-icons/go";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-
 export function StabCard() {
     return (
         <div className="opacity-50 outline-dashed relative md:w-76 md:h-36 w-120 h-52 rounded-xl outline-1 flex flex-col"></div>
