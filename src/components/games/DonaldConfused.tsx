@@ -39,7 +39,7 @@ const Model = () => {
 
 const spherical = new Spherical(2, 0);
 spherical.phi = 1;
-const SpiningLight = () => {
+export const SpiningLight = () => {
     const spotLightRef = useRef<SpotLight>(null);
 
     useFrame(() => {
@@ -51,7 +51,6 @@ const SpiningLight = () => {
             .add({ x: 0, y: 5, z: 0 });
         spotLight.lookAt(new Vector3(0, 0, 0));
         spherical.theta -= 0.03;
-        console.log(spherical.theta);
     });
 
     return (

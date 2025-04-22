@@ -22,7 +22,7 @@ export function ArtFrame({ art }: { art: Art }) {
                     onClick={() => useURLBlank(art.artURI)}
                 >
                     <HiExternalLink size={20} />
-                    open in external tab
+                    view art in external tab
                 </Button>
             </div>
         </>

@@ -12,14 +12,18 @@ import { TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Button } from "./components/ui/button.tsx";
 import Arts from "./pages/Arts.tsx";
 import Games from "./pages/Games.tsx";
+import Resume from "./pages/Resume.tsx";
 
 const tabs = ["Arts", "Playground", "IO Games", "Games", "Resume"];
-const tabsElements = [<Arts />, , <IOGames />, <Games />];
+const tabsElements = [<Arts />, , <IOGames />, <Games />, <Resume />];
 const tabsTooltip = ["3D Art", "3D Demos", "IO Games", "Local Games", "CV"];
 
 createRoot(document.getElementById("root")!).render(
     <TooltipProvider>
-        <Tabs defaultValue={tabs[3]} className="w-[100vw] h-[100vh]">
+        <Tabs
+            defaultValue={tabs[4]}
+            className="w-[100vw] h-[100vh] overflow-hidden"
+        >
             <TabsList className="flex gap-3 justify-center items-center pt-10">
                 {tabs.map((header, index) => (
                     <Tooltip>
@@ -27,7 +31,7 @@ createRoot(document.getElementById("root")!).render(
                             <TabsTrigger value={header} asChild>
                                 <Button
                                     variant="link"
-                                    className="py-2 rounded  px-5  cursor-pointer aria-selected:bg-input/40 transition-colors  aria-selected:hover:no-underline aria-selected:font-bold"
+                                    className="py-2 rounded  px-5  cursor-pointer aria-selected:bg-input/40 transition-colors bg-background aria-selected:hover:no-underline aria-selected:font-bold"
                                 >
                                     {header}
                                 </Button>

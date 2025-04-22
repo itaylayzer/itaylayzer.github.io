@@ -11,7 +11,6 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
         },
     },
-    base: "/games/",
     build: {
         outDir: "docs",
     },
