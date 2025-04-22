@@ -1,5 +1,5 @@
 import { statusColors, statusExplenations } from "@/config/constants/constants";
-import { GameProduct } from "@/types/types";
+import { IOGameProduct } from "@/types/types";
 import { GoDotFill } from "react-icons/go";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
@@ -12,7 +12,7 @@ export function StabCard() {
 export function GameCard({
     product,
     ...rest
-}: { product: GameProduct } & React.DetailedHTMLProps<
+}: { product: IOGameProduct } & React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
 >) {
@@ -37,7 +37,7 @@ export function GameCard({
                 </TooltipContent>
             </Tooltip>
             <div className="flex-1 flex flex-col items-center justify-center">
-                <h1 className=" text-2xl text-center font-(font-family: Geist) font-bold">
+                <h1 className="text-2xl text-center font-[Geist] font-bold">
                     {name}
                 </h1>
             </div>

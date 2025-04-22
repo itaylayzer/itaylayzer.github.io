@@ -1,4 +1,3 @@
-import { fetchSHA } from "@/api/fetchSHA";
 import useMarkdown from "@/api/useMarkdown";
 import useURLBlank from "@/api/useURLBlank";
 import { AsyncFetch } from "@/components/generic/AsyncFetch";
@@ -16,28 +15,24 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { TAGS } from "@/config/constants/constants";
-import { GameProduct } from "@/types/types";
+import { IOGameProduct } from "@/types/types";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import { AiFillPicture } from "react-icons/ai";
-import { FaGithub, FaIdCardAlt } from "react-icons/fa";
+import { FaIdCardAlt } from "react-icons/fa";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { TbClick } from "react-icons/tb";
 import ReactMK from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { GithubButton } from "../generic/GithubButton";
 
 export function GameDialog({
     activeProuduct,
     closeDialog,
     product,
 }: {
-    activeProuduct: React.Dispatch<React.SetStateAction<GameProduct>>;
-    product: GameProduct;
+    activeProuduct: React.Dispatch<React.SetStateAction<IOGameProduct>>;
+    product: IOGameProduct;
     closeDialog: () => void;
 }) {
     return (
@@ -56,7 +51,7 @@ export function GameDialog({
                                 src={product.picture}
                                 alt=""
                             />
-                            <DialogTitle className="text-4xl mt-2 text-center">
+                            <DialogTitle className="text-4xl mt-2 text-center font-[Rubik]">
                                 {product.name}
                             </DialogTitle>
                         </div>
@@ -90,27 +85,10 @@ export function GameDialog({
                             ))}
                         </div>
                         <div className="flex gap-2 justify-center items-center">
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button
-                                        variant="link"
-                                        disabled={Boolean(!product.github)}
-                                        onClick={() => {
-                                            useURLBlank(product.github!);
-                                        }}
-                                        className="z-10 cursor-pointer"
-                                    >
-                                        <FaGithub color="white" />
-                                        <AsyncFetch
-                                            promise={fetchSHA(product.hash)}
-                                            success={(sha) => <p>{sha}</p>}
-                                        ></AsyncFetch>
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    <p>open Github repo</p>
-                                </TooltipContent>
-                            </Tooltip>
+                            <GithubButton
+                                sha={product.hash}
+                                github={product.github}
+                            />
                             <Dialog>
                                 <DialogTrigger asChild>
                                     <Button

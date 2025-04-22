@@ -1,8 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useFBX, useAnimations } from "@react-three/drei";
-import { useEffect, Suspense } from "react";
-import { Color, Fog, TextureLoader } from "three";
-import { RepeatWrapping } from "three";
+import { useEffect } from "react";
+import { Color, Fog } from "three";
 
 function SleepingModel() {
     const fbx = useFBX("fbx/sleeping.fbx");
@@ -12,11 +11,13 @@ function SleepingModel() {
     useEffect(() => {
         if (actions && animations.length > 0) {
             actions[animations[0].name]?.play();
+            // fbx.scale.set(0.005, 0.005, 0.005);
         }
     }, [actions, animations]);
 
     useFrame((_, delta) => {
         mixer.update(delta);
+        // fbx.scale.lerp({ x: 0.01, y: 0.01, z: 0.01 }, 0.25);
     });
 
     return (
@@ -30,24 +31,6 @@ function SleepingModel() {
     );
 }
 
-function Ground() {
-    const texture = new TextureLoader().load("textures/ground.png");
-
-    texture.wrapS = texture.wrapT = RepeatWrapping;
-    texture.offset.set(0, 0);
-    texture.repeat.set(200, 200);
-
-    return (
-        <mesh
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[0, -0.05, 0]}
-            receiveShadow
-        >
-            <planeGeometry args={[150, 150]} />
-            <meshBasicMaterial map={texture} />
-        </mesh>
-    );
-}
 
 export function SleepingDonald() {
     return (
@@ -70,9 +53,7 @@ export function SleepingDonald() {
                 penumbra={0}
             />
 
-            <Suspense>
-                <SleepingModel />
-            </Suspense>
+            <SleepingModel />
         </Canvas>
     );
 }

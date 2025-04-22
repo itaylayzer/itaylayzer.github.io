@@ -1,6 +1,6 @@
-import { GameProduct } from "@/types/types";
+import { Art, GameProduct, IOGameProduct } from "@/types/types";
 
-export const productsSample: GameProduct[] = [
+export const ioGames: IOGameProduct[] = [
     {
         name: "Kart.io",
         level: 0,
@@ -76,5 +76,75 @@ export const productsSample: GameProduct[] = [
         description: "Fun Trivia game to play with family and friends!",
         title: "Trivia Mini IO Game",
         hash: "https://api.github.com/repos/itaylayzer/Trivia.IO/commits/main",
+    },
+];
+
+export const arts: Art[] = [
+    {
+        name: "Backgammon",
+        artURI: "https://itaylayzer.github.io/backgammon/",
+        github: "https://github.com/itaylayzer/backgammon",
+        hash: "https://api.github.com/repos/itaylayzer/backgammon/commits/master",
+    },
+    {
+        name: "Chess",
+        artURI: "https://itaylayzer.github.io/chess/",
+        github: "https://github.com/itaylayzer/chess",
+        hash: "https://api.github.com/repos/itaylayzer/chess/commits/master",
+    },
+    {
+        name: "Catan",
+        artURI: "https://itaylayzer.github.io/catan/",
+        github: "https://github.com/itaylayzer/catan",
+        hash: "https://api.github.com/repos/itaylayzer/catan/commits/master",
+    },
+    {
+        name: "Rummikub",
+        artURI: "https://itaylayzer.github.io/rummikub/",
+        github: "https://github.com/itaylayzer/rummikub",
+        hash: "https://api.github.com/repos/itaylayzer/rummikub/commits/master",
+    },
+];
+
+export const games: GameProduct[] = [
+    {
+        name: "Uno-C",
+        markDown:
+            "https://raw.githubusercontent.com/itaylayzer/Uno-C/main/Readme.md",
+        github: "https://github.com/itaylayzer/Uno-C",
+        level: 0,
+        gallery: [["https://itaylayzer.github.io/Uno-C/short.mp4"], undefined],
+        tags: 0b0010100,
+        description: "todo",
+        hash: "https://api.github.com/repos/itaylayzer/Uno-C/commits/main",
+        title: "Uno PvE written in C using Raylib",
+    },
+    {
+        name: "CatanFX",
+        markDown:
+            "https://raw.githubusercontent.com/itaylayzer/CatanFX/main/readme.md",
+        github: "https://github.com/itaylayzer/CatanFX",
+        level: 1,
+        gallery: [
+            undefined,
+            [
+                "https://raw.githubusercontent.com/itaylayzer/CatanFX/main/images/Capture.PNG",
+            ],
+        ],
+        tags: 0b0010100,
+        description: "todo",
+        hash: "https://api.github.com/repos/itaylayzer/CatanFX/commits/main",
+        title: "JavaFx Catan Collage Project",
+    },
+    {
+        name: "FPS-Online.Unity",
+        markDown:
+            "https://raw.githubusercontent.com/itaylayzer/FPS-Online.Unity/main/README.md",
+        github: "https://github.com/itaylayzer/FPS-Online.Unity",
+        level: 1,
+        tags: 0b0010011,
+        description: "todo",
+        hash: "https://api.github.com/repos/itaylayzer/FPS-Online.Unity/commits/main",
+        title: "First Person Shooter with Online features such as Multiplayer and Servers. powerd by Unity - Game Engine",
     },
 ];

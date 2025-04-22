@@ -1,26 +1,30 @@
-import { FixedGrid } from "./components/donald/FixedGrid";
-import { GameCard, StabCard } from "./components/donald/GameCard";
-import { SleepingDonald } from "./components/donald/SleepingDonald";
-import { productsSample } from "./config/constants/sample";
+import { FixedGrid } from "../components/donald/FixedGrid";
+import { GameCard, StabCard } from "../components/donald/GameCard";
+import { SleepingDonald } from "../components/donald/SleepingDonald";
+import { ioGames } from "../config/constants/sample";
 
-import { GameDialog } from "./components/donald/Dialog";
-import { useNullishState } from "./hooks/useNullishState";
+import { GameDialog } from "../components/donald/Dialog";
+import { useNullishState } from "../hooks/useNullishState";
+import { useEventMemo } from "@/hooks/useEventMemo";
 
 const multiplier = 1;
 
 export default () => {
     const [product, activeProuduct, setActiveProduct] = useNullishState(
-        productsSample[0]
+        ioGames[0]
     );
 
     const closeDialog = () => {
         setActiveProduct(null);
     };
 
-    const split = window.matchMedia("(max-width: 1536px)").matches ? 6 : 9;
-    console.log(split);
+    const check = () =>
+        window.matchMedia("(max-width: 1536px)").matches ? 6 : 9;
+
+    const split = useEventMemo(check(), check, window, "resize");
+    console.log("split", split);
     const arr = Array(
-        Math.ceil((productsSample.length * multiplier) / split) * split
+        Math.ceil((ioGames.length * multiplier) / split) * split
     ).fill(null);
 
     return (
@@ -32,15 +36,15 @@ export default () => {
                             split={split}
                             container={{
                                 className:
-                                    "align-content mx-auto max-w-238 max-w-238 md:gap-x-6 md:gap-y-6 scale-90 gap-x-10 gap-y-10 grid grid-cols-3 grid-rows-3 md:grid-rows-2",
+                                    "align-content mx-auto max-w-238 max-w-238 not-xl:gap-x-6 scale-90 gap-x-10 gap-y-6 grid grid-cols-3 grid-rows-3 md:grid-rows-2",
                             }}
                         >
                             {arr.flatMap((_, index) => {
                                 const fixedIndex = Math.floor(
                                     index / multiplier
                                 );
-                                if (fixedIndex < productsSample.length) {
-                                    const product = productsSample[fixedIndex];
+                                if (fixedIndex < ioGames.length) {
+                                    const product = ioGames[fixedIndex];
                                     return (
                                         <GameCard
                                             onClick={() => {
