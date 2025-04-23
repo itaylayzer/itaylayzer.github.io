@@ -42,7 +42,7 @@ const extendend = [
 const App = () => (
     <TooltipProvider>
         <Tabs
-            defaultValue={tabs[1]}
+            defaultValue={tabs[2]}
             className="w-[100vw] h-[100vh] overflow-hidden"
         >
             <div className="flex gap-0 justify-center items-center pt-10">
