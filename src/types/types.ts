@@ -33,3 +33,7 @@ export interface IOGameProduct extends GameProduct {
 export interface Art extends Product, Github {
     artURI: string;
 }
+export type PlaygroundProduct = Omit<
+    IOGameProduct,
+    "gallery" | "picture" | "title" | "description"
+>;

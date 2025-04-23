@@ -26,6 +26,7 @@ export function GithubButton({
                     <FaGithub color="white" />
                     <AsyncFetch
                         promise={fetchSHA(sha)}
+                        failure={() => <p>open github</p>}
                         success={(sha) => <p>{sha}</p>}
                     ></AsyncFetch>
                 </Button>

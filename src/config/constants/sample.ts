@@ -1,4 +1,9 @@
-import { Art, GameProduct, IOGameProduct } from "@/types/types";
+import {
+    Art,
+    GameProduct,
+    IOGameProduct,
+    PlaygroundProduct,
+} from "@/types/types";
 
 export const ioGames: IOGameProduct[] = [
     {
@@ -146,5 +151,38 @@ export const games: GameProduct[] = [
         description: "todo",
         hash: "https://api.github.com/repos/itaylayzer/FPS-Online.Unity/commits/main",
         title: "First Person Shooter with Online features such as Multiplayer and Servers. powerd by Unity - Game Engine",
+    },
+];
+
+export const playgrounds: PlaygroundProduct[] = [
+    {
+        name: "First Person Shooter",
+        level: 0,
+        tags: 0b1101010,
+        markDown:
+            "https://raw.githubusercontent.com/itaylayzer/playground-fps/master/README.md",
+        github: "https://github.com/itaylayzer/playground-fps",
+        gameURI: "https://itaylayzer.github.io/playground-fps/",
+        hash: "https://api.github.com/repos/itaylayzer/playground-fps/commits/master",
+    },
+    {
+        name: "Kart Controller",
+        level: 0,
+        tags: 0b1101010,
+        markDown:
+            "https://raw.githubusercontent.com/itaylayzer/playground-kart/master/README.md",
+        github: "https://github.com/itaylayzer/playground-kart",
+        gameURI: "https://itaylayzer.github.io/playground-kart/",
+        hash: "https://api.github.com/repos/itaylayzer/playground-kart/commits/master",
+    },
+    {
+        name: "Counter Strike",
+        level: 1,
+        tags: 0b1101010,
+        markDown:
+            "https://raw.githubusercontent.com/itaylayzer/playground-counter-strike/master/README.md",
+        github: "https://github.com/itaylayzer/playground-counter-strike",
+        gameURI: "https://itaylayzer.github.io/playground-counter-strike/",
+        hash: "https://api.github.com/repos/itaylayzer/playground-counter-strike/commits/master",
     },
 ];
