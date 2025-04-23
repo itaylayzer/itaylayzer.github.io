@@ -1,24 +1,22 @@
+import { TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import IOGames from "./pages/IOGames.tsx";
+import { FaGithub } from "react-icons/fa";
+import { FaRegFileLines } from "react-icons/fa6";
+import { SiGmail } from "react-icons/si";
+import useURLBlank from "./api/useURLBlank.ts";
+import { Button } from "./components/ui/button.tsx";
+import { Tabs } from "./components/ui/tabs.tsx";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "./components/ui/tooltip.tsx";
-import { Tabs } from "./components/ui/tabs.tsx";
-import { TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
-import { Button } from "./components/ui/button.tsx";
+import "./index.css";
 import Arts from "./pages/Arts.tsx";
 import Games from "./pages/Games.tsx";
-import Resume from "./pages/Resume.tsx";
+import IOGames from "./pages/IOGames.tsx";
 import Playground from "./pages/Playground.tsx";
-import { SiGmail } from "react-icons/si";
-import { FaGithub } from "react-icons/fa";
-import useURLBlank from "./api/useURLBlank.ts";
-import { PiReadCvLogoFill } from "react-icons/pi";
-import { FaRegFileLines } from "react-icons/fa6";
 const tabs = ["Arts", "Playground", "IO Games", "Games"];
 const tabsElements = [<Arts />, <Playground />, <IOGames />, <Games />];
 const tabsTooltip = ["3D Art", "3D Demos", "IO Games", "Local Games"];
@@ -41,7 +39,7 @@ const extendend = [
     },
 ];
 
-createRoot(document.getElementById("root")!).render(
+const App = () => (
     <TooltipProvider>
         <Tabs
             defaultValue={tabs[1]}
@@ -98,4 +96,33 @@ createRoot(document.getElementById("root")!).render(
             ))}
         </Tabs>
     </TooltipProvider>
+);
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import useURLGoto from "./api/useURLGoto.ts";
+import { IoIosArrowBack } from "react-icons/io";
+export function P404() {
+    return (
+        <div className="flex flex-col gap-2 absolute top-0 left-0 w-full h-full justify-center items-center">
+            <h1 className="text-6xl font-[Rubik] ">Page not found</h1>{" "}
+            <Button
+                variant="link"
+                className="cursor-pointer text-lg"
+                onClick={() => {
+                    useURLGoto();
+                }}
+            >
+                <IoIosArrowBack />
+                Go back to Home
+            </Button>
+        </div>
+    );
+}
+
+createRoot(document.getElementById("root")!).render(
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="*" element={<P404 />} />
+        </Routes>
+    </BrowserRouter>
 );

@@ -1,18 +1,8 @@
 import { toonify } from "@/api/toonify";
 import { useGLTF } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
-import {
-    AmbientLight,
-    Color,
-    Euler,
-    Fog,
-    Quaternion,
-    Spherical,
-    SpotLight,
-    Vector3,
-} from "three";
-import { randFloat } from "three/src/math/MathUtils.js";
+import { useEffect, useRef } from "react";
+import { AmbientLight, Color, Fog, Spherical, SpotLight, Vector3 } from "three";
 
 function PistolModel() {
     const { scene } = useGLTF("glb/low-poly_beretta_m9.glb");
